@@ -8,7 +8,17 @@
 
 <script setup lang="ts">
 import { useNotificationStore } from '@/stores/notification'
+import { soundManager } from '@/utils/sound'
+import { watch } from 'vue'
+
 const notification = useNotificationStore()
+
+// Watch for notification changes to play sound
+watch(() => notification.show, (newValue) => {
+  if (newValue) {
+    soundManager.play('click')
+  }
+})
 </script>
 
 <style lang="scss" scoped>

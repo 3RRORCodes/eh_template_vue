@@ -32,6 +32,7 @@
 import { ref, onMounted } from 'vue'
 import { sendNuiMessage, nuiCallback, onNuiEvent } from '@/utils/nui'
 import { useNotificationStore } from '@/stores/notification'
+import { soundManager } from '@/utils/sound'
 
 const notification = useNotificationStore()
 const isVisible = ref(false)
@@ -53,12 +54,14 @@ onNuiEvent<{ playerName: string, playerId: number, health: number }>('updateData
 
 // Close UI
 const closeUI = () => {
+  soundManager.play('click')
   nuiCallback('closeUI')
   isVisible.value = false
 }
 
 // Example action
 const sendGameNotification = () => {
+  soundManager.play('click')
   nuiCallback('doAction', {
     type: 'notification',
     message: 'Hello from UI!'
