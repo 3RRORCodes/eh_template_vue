@@ -5,6 +5,14 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   plugins: [vue()],
   base: './',
+  css: {
+    preprocessorOptions: {
+      scss: {
+        charset: false,
+        additionalData: `@use "sass:math";`
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
