@@ -1,0 +1,41 @@
+// Reset & Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: transparent;
+  overflow: hidden;
+}
+
+// Variables
+:root {
+  --primary: #4f46e5;
+  --secondary: #6366f1;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  
+  --bg-primary: rgba(15, 23, 42, 0.95);
+  --bg-secondary: rgba(30, 41, 59, 0.95);
+}
+
+// Utility classes
+.flex {
+  display: flex;
+  &-center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.hidden {
+  display: none !important;
+} 
